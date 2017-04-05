@@ -41,6 +41,24 @@ namespace Pathfinder.Event
         }
     }
 
+    public class PostLoadContentEvent : PathfinderEvent
+    {
+        private Hacknet.Game1 gameInstance;
+
+        public Hacknet.Game1 GameInstance
+        {
+            get
+            {
+                return gameInstance;
+            }
+        }
+
+        public PostLoadContentEvent(Hacknet.Game1 gameInstance)
+        {
+            this.gameInstance = gameInstance;
+        }
+    }
+
     public class CommandSentEvent : PathfinderEvent
     {
         private Hacknet.OS osInstance;

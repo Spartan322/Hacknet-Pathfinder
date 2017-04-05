@@ -29,6 +29,12 @@
             loadContentEvent.CallEvent();
         }
 
+        public static void onPostLoadContent(Hacknet.Game1 self)
+        {
+            var postLoadContentEvent = new Event.PostLoadContentEvent(self);
+            postLoadContentEvent.CallEvent();
+        }
+
         // Hook location : ProgramRunner.ExecuteProgram()
         public static bool onCommandSent(out bool disconnects, object osObj, string[] arguments)
         {

@@ -56,6 +56,12 @@ namespace PathfinderPatcher
                     flags: InjectFlags.PassInvokingInstance
                 );
 
+                ad.MainModule.GetType("Hacknet.Game1").GetMethod("LoadContent").InjectWith(
+                    hooks.GetMethod("onPostLoadContent"),
+                    flags: InjectFlags.PassInvokingInstance,
+                    dir: InjectDirection.After
+                );
+
                 ad.MainModule.GetType("Hacknet.ProgramRunner").GetMethod("ExecuteProgram").InjectWith(
                     hooks.GetMethod("onCommandSent"),
                     flags: InjectFlags.PassParametersVal | InjectFlags.ModifyReturn
