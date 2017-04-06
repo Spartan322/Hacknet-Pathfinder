@@ -56,5 +56,5 @@
             var loadSessionEvent = new Event.LoadSessionEvent(self);
             loadSessionEvent.CallEvent();
         }
-	}
+    }
 }

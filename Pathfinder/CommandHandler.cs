@@ -42,18 +42,14 @@ namespace Pathfinder
             return true;
         }
 
-        /// <summary>
-        /// Do not use this method outside of Pathfinder.dll
-        /// </summary>
-        public static void CommandListener(PathfinderEvent pathfinderEvent)
+        internal static void CommandListener(PathfinderEvent pathfinderEvent)
         {
             var commandSentEvent = (CommandSentEvent)pathfinderEvent;
-            foreach (KeyValuePair<string, Func<OS, string[], bool>> entry in commands)
+            foreach (var entry in commands)
                 if (commandSentEvent.Args[0].ToLower() == entry.Key.ToLower())
                 {
-                    bool disconnects = entry.Value(commandSentEvent.OsInstance, commandSentEvent.Args);
                     commandSentEvent.IsCancelled = true;
-                    commandSentEvent.Disconnects = disconnects;
+                    commandSentEvent.Disconnects = entry.Value(commandSentEvent.OsInstance, commandSentEvent.Args);
                     break;
                 }
         }

@@ -3,4 +3,6 @@ FNA.dll
 Steamworks.NET.dll
 PathfinderPatcher.exe
 PathfinderPatcher.pdb
+PathfinderPatcher.vshost.exe
+PathfinderPatcher.vshost.exe.manifest
 HacknetPathfinder.exe

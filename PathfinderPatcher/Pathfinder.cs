@@ -73,7 +73,9 @@ namespace PathfinderPatcher
                 );
 
                 ad.Write("HacknetPathfinder.exe");
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Console.Write(ex);
                 Console.WriteLine("Press enter to end...");
                 Console.ReadLine();
